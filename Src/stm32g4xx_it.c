@@ -23,6 +23,8 @@
 #include "stm32g4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "vofa.h"
+#include "AS5600.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,6 +58,9 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim6;
+extern TIM_HandleTypeDef htim15;
 extern DMA_HandleTypeDef hdma_usart1_rx;
 extern DMA_HandleTypeDef hdma_usart1_tx;
 extern UART_HandleTypeDef huart1;
@@ -228,16 +233,34 @@ void DMA1_Channel2_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles TIM1 break interrupt and TIM15 global interrupt.
+  */
+void TIM1_BRK_TIM15_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 0 */
+
+  /* USER CODE END TIM1_BRK_TIM15_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  HAL_TIM_IRQHandler(&htim15);
+  /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 1 */
+	AS5600_Get_Angle(&AS5600);
+	AS5600_Speed_Cal_1khz(&AS5600);
+  /* USER CODE END TIM1_BRK_TIM15_IRQn 1 */
+}
+
+/**
   * @brief This function handles USART1 global interrupt / USART1 wake-up interrupt through EXTI line 25.
   */
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
-
+  Vofa_UART_Receive(rx_buffer, 50);
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
-
+	__HAL_UART_CLEAR_IDLEFLAG(&huart1);
+  __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
+  HAL_UART_Receive_DMA(&huart1, rx_buffer, 50);
   /* USER CODE END USART1_IRQn 1 */
 }
 
@@ -255,6 +278,20 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 
   /* USER CODE END EXTI15_10_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM6 global interrupt, DAC1 and DAC3 channel underrun error interrupts.
+  */
+void TIM6_DAC_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
+
+  /* USER CODE END TIM6_DAC_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim6);
+  /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
+
+  /* USER CODE END TIM6_DAC_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

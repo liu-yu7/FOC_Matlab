@@ -33,7 +33,8 @@ extern "C" {
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
-
+#define LED_ON() do{ HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);}while(0);
+#define LED_OFF() do{ HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);}while(0);
 /* USER CODE END Private defines */
 
 void MX_GPIO_Init(void);

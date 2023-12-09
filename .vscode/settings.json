@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "usart.h": "c",
+        "gpio.h": "c",
+        "stm32g4xx_it.h": "c",
+        "iic.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}

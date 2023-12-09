@@ -27,7 +27,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "AS5600.h"
+#include "vofa.h"
+#include "IIC.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,17 +96,28 @@ int main(void)
   MX_TIM1_Init();
   MX_USART1_UART_Init();
   MX_TIM6_Init();
+  MX_TIM15_Init();
   /* USER CODE BEGIN 2 */
-
+  AS5600_Init(&AS5600);
+  __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
+  HAL_UART_Receive_DMA(&huart1, rx_buffer, 50);
+  HAL_TIM_Base_Start_IT(&htim15);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    tempFloat[0] = AS5600.ecd;
+    tempFloat[1] = AS5600.angle;
+    tempFloat[2] = AS5600.total_ecd;
+    tempFloat[3] = AS5600.speed_rmp;
+		Vofa_Transmit(&huart1, 4);
+		HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+		HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
   }
   /* USER CODE END 3 */
 }

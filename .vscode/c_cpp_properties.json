@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/IIC_Soft",
+                "${workspaceFolder}/IIC_Soft"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "configurationProvider": "cl.eide",
+            "browse": {
+                "path": []
+            }
+        }
+    ],
+    "version": 4
+}

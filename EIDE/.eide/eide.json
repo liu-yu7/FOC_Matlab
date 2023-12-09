@@ -34,10 +34,16 @@
                 "path": "../Src/adc.c"
               },
               {
+                "path": "../Src/AS5600.c"
+              },
+              {
                 "path": "../Src/dma.c"
               },
               {
                 "path": "../Src/gpio.c"
+              },
+              {
+                "path": "../Src/IIC.c"
               },
               {
                 "path": "../Src/main.c"
@@ -53,6 +59,9 @@
               },
               {
                 "path": "../Src/usart.c"
+              },
+              {
+                "path": "../Src/vofa.c"
               }
             ],
             "folders": []
@@ -170,14 +179,16 @@
     ]
   },
   "outDir": "build",
-  "deviceName": null,
+  "deviceName": "STM32G431CBUx",
   "packDir": ".pack/Keil/STM32G4xx_DFP.1.5.0",
   "miscInfo": {
     "uid": "745af831a13a185a2f59bf741e65df5e"
   },
   "targets": {
     "FOC_MATLAB": {
-      "excludeList": [],
+      "excludeList": [
+        "../Vofa/UART_DMA.c"
+      ],
       "toolchain": "AC6",
       "compileConfig": {
         "cpuType": "Cortex-M4",
