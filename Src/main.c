@@ -27,7 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "AS5600.h"
+#include "FOC.h"
 #include "vofa.h"
 #include "IIC.h"
 /* USER CODE END Includes */
@@ -60,7 +60,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+float speed = 0.1f;
 /* USER CODE END 0 */
 
 /**
@@ -98,10 +98,23 @@ int main(void)
   MX_TIM6_Init();
   MX_TIM15_Init();
   /* USER CODE BEGIN 2 */
-  AS5600_Init(&AS5600);
+  FOC_Init(&FOC1_Handler);
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
   HAL_UART_Receive_DMA(&huart1, rx_buffer, 50);
   HAL_TIM_Base_Start_IT(&htim15);
+//	HAL_ADCEx_Calibration_Start(&hadc1, );
+  HAL_ADCEx_InjectedStart_IT(&hadc1);
+	TIM1->CCR4 = PWM_PER-2;
+  HAL_TIM_Base_Start(&htim1);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
+	
+  FOC1_Handler.qd.U_q = 0.1f;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -109,10 +122,16 @@ int main(void)
   while (1)
   {
     tempFloat[0] = AS5600.ecd;
-    tempFloat[1] = AS5600.angle;
+    tempFloat[1] = FOC1_Handler.Theta;
     tempFloat[2] = AS5600.total_ecd;
     tempFloat[3] = AS5600.speed_rmp;
-		Vofa_Transmit(&huart1, 4);
+    tempFloat[4] = FOC1_Handler.UVW.T_U;
+    tempFloat[5] = FOC1_Handler.UVW.T_V;
+    tempFloat[6] = FOC1_Handler.UVW.T_W;
+		tempFloat[7] = FOC1_Handler.UVW.I_U;
+		tempFloat[8] = FOC1_Handler.UVW.I_W;
+    FOC1_Handler.Theta += 0.001;
+		Vofa_Transmit(&huart1, 9);
 		HAL_Delay(1);
     /* USER CODE END WHILE */
 

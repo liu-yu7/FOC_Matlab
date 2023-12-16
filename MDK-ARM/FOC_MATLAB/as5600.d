@@ -36,4 +36,8 @@ foc_matlab\as5600.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h
 foc_matlab\as5600.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h
 foc_matlab\as5600.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h
 foc_matlab\as5600.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
+foc_matlab\as5600.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
+foc_matlab\as5600.o: ../Drivers/CMSIS/Include/core_cm4.h
+foc_matlab\as5600.o: D:\Keil5\Keil5\ARM\ARMCC\Bin\..\include\string.h
+foc_matlab\as5600.o: D:\Keil5\Keil5\ARM\ARMCC\Bin\..\include\math.h
 foc_matlab\as5600.o: ../Inc/IIC.h

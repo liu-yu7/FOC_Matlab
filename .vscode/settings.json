@@ -3,7 +3,9 @@
         "usart.h": "c",
         "gpio.h": "c",
         "stm32g4xx_it.h": "c",
-        "iic.h": "c"
+        "iic.h": "c",
+        "mw_cmsis.h": "c",
+        "arm_math.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

@@ -24,7 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "vofa.h"
-#include "AS5600.h"
+#include "FOC.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,6 +58,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern ADC_HandleTypeDef hadc1;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim6;
 extern TIM_HandleTypeDef htim15;
@@ -233,6 +234,20 @@ void DMA1_Channel2_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles ADC1 and ADC2 global interrupt.
+  */
+void ADC1_2_IRQHandler(void)
+{
+  /* USER CODE BEGIN ADC1_2_IRQn 0 */
+
+  /* USER CODE END ADC1_2_IRQn 0 */
+  HAL_ADC_IRQHandler(&hadc1);
+  /* USER CODE BEGIN ADC1_2_IRQn 1 */
+
+  /* USER CODE END ADC1_2_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM1 break interrupt and TIM15 global interrupt.
   */
 void TIM1_BRK_TIM15_IRQHandler(void)
@@ -244,6 +259,7 @@ void TIM1_BRK_TIM15_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim15);
   /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 1 */
 	AS5600_Get_Angle(&AS5600);
+ // FOC1_Handler.Theta = AS5600.ecd*0.0015339825195f*Pole_pairs;
 	AS5600_Speed_Cal_1khz(&AS5600);
   /* USER CODE END TIM1_BRK_TIM15_IRQn 1 */
 }
@@ -296,4 +312,28 @@ void TIM6_DAC_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 
+/**
+ * @brief  外部中断回调函数
+ * @param  GPIO_PIN:外部中断的引脚号
+ * @retval �?
+ */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN)
+{
+  if(GPIO_PIN == KEY1_Pin)
+	{
+	}
+}
+
+/**
+ * @brief  注入组完成回调函�?
+ * @param  hadc:adc句柄
+ * @retval �?
+ */
+void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+  FOC1_Handler.UVW.I_U = hadc->Instance->JDR1;
+  FOC1_Handler.UVW.I_W = hadc->Instance->JDR2;
+  FOC_AntiPark(&FOC1_Handler);
+	FOC_SVPWM(&FOC1_Handler);
+}
 /* USER CODE END 1 */

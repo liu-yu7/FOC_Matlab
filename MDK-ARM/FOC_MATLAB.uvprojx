@@ -338,7 +338,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER,STM32G431xx</Define>
+              <Define>USE_HAL_DRIVER,STM32G431xx, __TARGET_FPU_VFP,ARM_MATH_CM4</Define>
               <Undefine></Undefine>
               <IncludePath>../Inc;../Drivers/STM32G4xx_HAL_Driver/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32G4xx/Include;../Drivers/CMSIS/Include;../Middlewares/ST/ARM/DSP/Inc;../AS5600;../IIC_Soft;../Vofa</IncludePath>
             </VariousControls>
@@ -408,6 +408,11 @@
               <FileName>vofa.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\vofa.c</FilePath>
+            </File>
+            <File>
+              <FileName>FOC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\FOC.c</FilePath>
             </File>
             <File>
               <FileName>main.c</FileName>
@@ -1656,9 +1661,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>bsp</GroupName>
-        </Group>
-        <Group>
           <GroupName>Middlewares/Library/DSP Library/DSP Library</GroupName>
           <GroupOption>
             <CommonProperty>
@@ -1730,6 +1732,11 @@
             </GroupArmAds>
           </GroupOption>
           <Files>
+            <File>
+              <FileName>arm_cortexM4lf_math.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\Middlewares\ST\ARM\DSP\Lib\arm_cortexM4lf_math.lib</FilePath>
+            </File>
             <File>
               <FileName>arm_cortexM4l_math.lib</FileName>
               <FileType>4</FileType>

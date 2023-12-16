@@ -52,11 +52,15 @@ void AS5600_Init(AS5600_measure *as5600)
   IIC_Init();
   for (int i = 0; i < 5; i++)
   {
-    int32_t value = 0;
-    value =  AS5600_IIC_Read_OneByte((0x36<<1),0x0e);   
-    value <<= 8;
-    value |= AS5600_IIC_Read_OneByte((0x36<<1),0x0f);
-    as5600->total_ecd = -value;
+		as5600->last_ecd = as5600->ecd;
+		int32_t value = 0;
+		value =  AS5600_IIC_Read_OneByte((0x36<<1),0x0e);   
+		value <<= 8;
+		value |= AS5600_IIC_Read_OneByte((0x36<<1),0x0f);
+		as5600->ecd = value;
+		as5600->angle = as5600->ecd*360.0f/4096;
+		angle_Calculate(as5600);
+		as5600->total_ecd = 0;
   }
 }
 
@@ -70,9 +74,19 @@ void AS5600_Get_Angle(AS5600_measure *as5600)
   as5600->last_ecd = as5600->ecd;
   int32_t value = 0;
   value =  AS5600_IIC_Read_OneByte((0x36<<1),0x0e);   
-  value <<= 8;
-  value |= AS5600_IIC_Read_OneByte((0x36<<1),0x0f);
-  as5600->ecd = value;
+	value <<= 8;
+	value |= AS5600_IIC_Read_OneByte((0x36<<1),0x0f);
+	if(value-as5600->ecd > 200 || value-as5600->ecd < -200)
+	{
+		value =  AS5600_IIC_Read_OneByte((0x36<<1),0x0e);   
+		value <<= 8;
+		value |= AS5600_IIC_Read_OneByte((0x36<<1),0x0f);
+		as5600->ecd = value;
+	}
+  else
+	{
+		as5600->ecd = value;
+	}
   as5600->angle = as5600->ecd*360.0f/4096;
   angle_Calculate(as5600);
 }
@@ -88,7 +102,19 @@ void AS5600_Speed_Cal_1khz(AS5600_measure *as5600)
 	last = as5600->speed_rmp;
 	float temp = (as5600->total_ecd - as5600->last_total_ecd)*60000.0f/4096;
 	if(temp - last > 3300 || temp - last < -3300)
-  as5600->speed_rmp = last*0.999 + temp*0.001;
+  as5600->speed_rmp = last*0.999f + temp*0.001f;
 	else
-	as5600->speed_rmp = last*0.8 + temp*0.2;
+	as5600->speed_rmp = last*0.9f + temp*0.1f;
+//	static int32_t last[20] = {0}, sum = 0;
+//	static int32_t temp = 0;
+//	static uint8_t t = 0;
+//	sum -=last[t];
+//	last[t] = (as5600->total_ecd - as5600->last_total_ecd);
+//	sum +=last[t];
+//	t++;
+//	if(t>19)
+//	{
+//		t=0;
+//	}
+//	as5600->speed_rmp = sum*3000.0f/4096;
 }

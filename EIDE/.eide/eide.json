@@ -40,6 +40,9 @@
                 "path": "../Src/dma.c"
               },
               {
+                "path": "../Src/FOC.c"
+              },
+              {
                 "path": "../Src/gpio.c"
               },
               {

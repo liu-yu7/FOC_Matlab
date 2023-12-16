@@ -46,7 +46,7 @@ void Vofa_Transmit(UART_HandleTypeDef *huart, uint8_t num)
     tempData[len-3] = 0x00;
     tempData[len-2] = 0x80;
     tempData[len-1] = 0x7f;
-    HAL_UART_Transmit_DMA(huart, (uint8_t *)tempData, len);
+    HAL_UART_Transmit(huart, (uint8_t *)tempData, len, 1000);
 }
 /**
  * @brief  VOFA帧处理函数
