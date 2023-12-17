@@ -48,4 +48,5 @@ foc_matlab\stm32g4xx_it.o: ../Inc/vofa_setting.h
 foc_matlab\stm32g4xx_it.o: ../Inc/FOC.h
 foc_matlab\stm32g4xx_it.o: ../Inc/AS5600.h
 foc_matlab\stm32g4xx_it.o: ../Inc/IIC.h
+foc_matlab\stm32g4xx_it.o: ../Inc/pid.h
 foc_matlab\stm32g4xx_it.o: ../Inc/mw_cmsis.h

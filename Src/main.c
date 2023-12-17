@@ -60,7 +60,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-float speed = 0.1f;
+
 /* USER CODE END 0 */
 
 /**
@@ -114,25 +114,25 @@ int main(void)
 	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_3);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
 	
-  FOC1_Handler.qd.U_q = 0.1f;
+  FOC1_Handler.qd.U_q = 0.02f;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    tempFloat[0] = AS5600.ecd;
+//    tempFloat[0] = AS5600.ecd;
     tempFloat[1] = FOC1_Handler.Theta;
     tempFloat[2] = AS5600.total_ecd;
     tempFloat[3] = AS5600.speed_rmp;
-    tempFloat[4] = FOC1_Handler.UVW.T_U;
-    tempFloat[5] = FOC1_Handler.UVW.T_V;
-    tempFloat[6] = FOC1_Handler.UVW.T_W;
-		tempFloat[7] = FOC1_Handler.UVW.I_U;
-		tempFloat[8] = FOC1_Handler.UVW.I_W;
-    FOC1_Handler.Theta += 0.001;
+		tempFloat[4] = FOC1_Handler.qd.U_q;
+		tempFloat[5] = FOC1_Handler.UVW.I_W;
+		tempFloat[6] = FOC1_Handler.UVW.I_V;
+		tempFloat[7] = FOC1_Handler.qd.I_d;
+		tempFloat[8] = FOC1_Handler.qd.I_q;
+//		tempFloat[9] = FOC1_Handler.UVW.I_V;
+//    FOC1_Handler.Theta += 0.1f;
 		Vofa_Transmit(&huart1, 9);
-		HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

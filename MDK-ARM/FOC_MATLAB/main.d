@@ -47,6 +47,7 @@ foc_matlab\main.o: ../Inc/gpio.h
 foc_matlab\main.o: ../Inc/FOC.h
 foc_matlab\main.o: ../Inc/AS5600.h
 foc_matlab\main.o: ../Inc/IIC.h
+foc_matlab\main.o: ../Inc/pid.h
 foc_matlab\main.o: ../Inc/mw_cmsis.h
 foc_matlab\main.o: ../Inc/vofa.h
 foc_matlab\main.o: ../Inc/vofa_setting.h

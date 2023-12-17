@@ -3,9 +3,17 @@
 
 #include "main.h"
 #include "AS5600.h"
+#include "pid.h"
 #include "mw_cmsis.h"
 
 #define Pole_pairs 7
+#define Ele_offset 544   	//电角度机械补偿
+#define IN1_offset 2011   //I相电流ADC补偿
+#define IN2_offset 2081   //W相电流ADC补偿
+
+#define Torque_Mode 	0
+#define Speed_Mode  	1
+#define Position_Mode 2
 
 typedef struct
 {
@@ -42,14 +50,20 @@ typedef struct
     Alpha_Beta     Alpha_Beta;
     UVW            UVW;
     QD             qd;
+    pid_t          Pid_I;            //电流环pid
+    pid_t          Pid_Vel;          //速度环pid
+    pid_t          Pid_Pos;          //位置环pid
+		uint8_t				 mode;             //0：力矩；1：速度；2：位置
+		float          target;
 } FOC;
 
 extern FOC FOC1_Handler;
 
 void FOC_Init(FOC *handler);
-void FOC_AntiPark(FOC *handler);
+void FOC_Park(FOC *handler);
+void FOC_Clark(FOC *handler);
 void FOC_SVPWM(FOC *handler);
-
+void FOC_Pid_Cal(FOC *handler);
 
 
 #endif

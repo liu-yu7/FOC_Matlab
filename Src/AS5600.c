@@ -92,19 +92,19 @@ void AS5600_Get_Angle(AS5600_measure *as5600)
 }
 
 /**
- * @brief  AS5600获取速度，放到1khz的定时器中断内
+ * @brief  AS5600获取速度，放到10khz的定时器中断内
  * @param  as5600：AS5600数据结构体指针
  * @retval 无
  */
-void AS5600_Speed_Cal_1khz(AS5600_measure *as5600)
+void AS5600_Speed_Cal_10khz(AS5600_measure *as5600)
 {
 	static float last = 0;
 	last = as5600->speed_rmp;
-	float temp = (as5600->total_ecd - as5600->last_total_ecd)*60000.0f/4096;
+	float temp = (as5600->total_ecd - as5600->last_total_ecd)*600000.0f/4096;
 	if(temp - last > 3300 || temp - last < -3300)
   as5600->speed_rmp = last*0.999f + temp*0.001f;
 	else
-	as5600->speed_rmp = last*0.9f + temp*0.1f;
+	as5600->speed_rmp = last*0.99f + temp*0.01f;
 //	static int32_t last[20] = {0}, sum = 0;
 //	static int32_t temp = 0;
 //	static uint8_t t = 0;

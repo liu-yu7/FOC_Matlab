@@ -24,6 +24,6 @@ extern AS5600_measure AS5600;
 
 void AS5600_Init(AS5600_measure *as5600);
 void AS5600_Get_Angle(AS5600_measure *as5600);
-void AS5600_Speed_Cal_1khz(AS5600_measure *as5600);
+void AS5600_Speed_Cal_10khz(AS5600_measure *as5600);
   
 #endif
