@@ -40,6 +40,7 @@ foc_matlab\foc.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
 foc_matlab\foc.o: ../Drivers/CMSIS/Include/core_cm4.h
 foc_matlab\foc.o: D:\Keil5\Keil5\ARM\ARMCC\Bin\..\include\string.h
 foc_matlab\foc.o: D:\Keil5\Keil5\ARM\ARMCC\Bin\..\include\math.h
+foc_matlab\foc.o: ../Inc/user_config.h
 foc_matlab\foc.o: ../Inc/AS5600.h
 foc_matlab\foc.o: ../Inc/IIC.h
 foc_matlab\foc.o: ../Inc/pid.h

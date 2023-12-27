@@ -243,7 +243,7 @@ void ADC1_2_IRQHandler(void)
   /* USER CODE END ADC1_2_IRQn 0 */
   HAL_ADC_IRQHandler(&hadc1);
   /* USER CODE BEGIN ADC1_2_IRQn 1 */
-
+//	__HAL_ADC_CLEAR_FLAG(&hadc1, ADC_FLAG_EOSMP);
   /* USER CODE END ADC1_2_IRQn 1 */
 }
 
@@ -311,49 +311,5 @@ void TIM6_DAC_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 
-/**
- * @brief  外部中断回调函数
- * @param  GPIO_PIN:外部中断的引脚号
- * @retval none
- */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN)
-{
-  if(GPIO_PIN == KEY1_Pin)
-	{
-	}
-}
 
-/**
- * @brief  注入组完成回调函数
- * @param  hadc:adc句柄
- * @retval none
- */
-void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *hadc)
-{
-  /*******************************电流计算*************************************/
-  //采样电阻0.001运放x30.4818，电流I=adc/4096*3.3/30.4818/0.001
-  FOC1_Handler.UVW.I_V = ((int32_t)hadc->Instance->JDR1 - IN1_offset)*0.0264309870972f*1.129033f;
-  FOC1_Handler.UVW.I_W = ((int32_t)hadc->Instance->JDR2 - IN2_offset)*0.0264309870972f*1.0f;
-  FOC1_Handler.UVW.I_U = (-FOC1_Handler.UVW.I_V - FOC1_Handler.UVW.I_W);     //I_U+I_V+I_W=0
-  /***************************************************************************/
-
-  /*******************************角度处理*************************************/
-  AS5600_Get_Angle(&AS5600);
-  //转化为电角度，*0.0015339825195f转化为弧度
-  FOC1_Handler.Theta = (AS5600.ecd - Ele_offset)*Pole_pairs*0.0015339825195f;
-  /***************************************************************************/
-
-  FOC_Clark(&FOC1_Handler);           //由I_UVW得到I_αβ
-  FOC_Park(&FOC1_Handler);            //由I_αβ得到I_qd
-	//接线不同改变方向
-	FOC1_Handler.qd.I_d = -FOC1_Handler.qd.I_d;
-	FOC1_Handler.qd.I_q  = -FOC1_Handler.qd.I_q;
-
-  /*******************************Pid计算*************************************/
-  FOC_Pid_Cal(&FOC1_Handler);
-
-  /***************************************************************************/
-
-	FOC_SVPWM(&FOC1_Handler);
-}
 /* USER CODE END 1 */

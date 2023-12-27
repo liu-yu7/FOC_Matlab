@@ -2,18 +2,16 @@
 #define __FOC_H__
 
 #include "main.h"
+#include "user_config.h"
 #include "AS5600.h"
 #include "pid.h"
 #include "mw_cmsis.h"
 
-#define Pole_pairs 7
-#define Ele_offset 544   	//电角度机械补偿
-#define IN1_offset 2011   //I相电流ADC补偿
-#define IN2_offset 2081   //W相电流ADC补偿
 
-#define Torque_Mode 	0
-#define Speed_Mode  	1
-#define Position_Mode 2
+
+// #define IN1_offset 2069   //I相电流ADC补偿
+// #define IN2_offset 2137   //W相电流ADC补偿
+
 
 typedef struct
 {
@@ -38,22 +36,42 @@ typedef struct
 {
     float I_q;
     float I_d;        //qd轴电流
+		float I_q_filt;
+		float I_d_filt;		//用于报告的qd轴电流
     float U_q;        
     float U_d;        //qd轴电压
 
 } QD;
 
+typedef enum FOC_Mode{
+	Torque_Mode = 0,		//力矩模式
+	Speed_Mode,					//速度模式
+	Position_Mode,			//位置模式
+} tFOC_Mode;
+
+typedef enum FOC_State{
+	Cilibration = 0,			//校准
+	Ready,							//准备完成
+	Run,								//运行
+	Err,								//出错
+} tFOC_State;
+
 typedef struct
 {
+		TIM_HandleTypeDef *htim;          //pwm定时器
+		TIM_TypeDef 			*TIM;           //pwm定时器   
+		ADC_HandleTypeDef *hadc;					//采样adc
     AS5600_measure *Encoder_measure;
     float          Theta;             //电角度（rad）
     Alpha_Beta     Alpha_Beta;
     UVW            UVW;
     QD             qd;
-    pid_t          Pid_I;            //电流环pid
     pid_t          Pid_Vel;          //速度环pid
     pid_t          Pid_Pos;          //位置环pid
-		uint8_t				 mode;             //0：力矩；1：速度；2：位置
+		tFOC_Mode			 mode;             //Torque_Mode：力矩；Speed_Mode：速度；Position_Mode：位置
+		tFOC_State		 state;							//FOC状态 Clibration:校准Ready:准备完成Run:运行Err:出错
+		tUser_Config 	 *usrConfig;			 //配置参数
+		float          target_i;			 //q轴电流目标
 		float          target;
 } FOC;
 

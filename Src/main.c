@@ -28,6 +28,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "FOC.h"
+#include "User_Config.h"
 #include "vofa.h"
 #include "IIC.h"
 /* USER CODE END Includes */
@@ -98,21 +99,28 @@ int main(void)
   MX_TIM6_Init();
   MX_TIM15_Init();
   /* USER CODE BEGIN 2 */
+  /*******************************配置参数*********************************/
+	FOC1_Handler.TIM = TIM1;
+	FOC1_Handler.htim = &htim1;
+	FOC1_Handler.hadc = &hadc1;
+	
+  UserConfig.Pole_pairs = 7;
+  UserConfig.Ele_offset = 544;
+  UserConfig.Current_bandwidth = 1000;
+  UserConfig.Phase_resistance = 0.165f;
+  UserConfig.Phase_inductance = 0.00002567f;
+  UserConfig.Current_p = UserConfig.Phase_inductance*UserConfig.Current_bandwidth;
+	UserConfig.Current_i = UserConfig.Phase_resistance*UserConfig.Current_bandwidth;
+  /**********************************************************************/
+	AS5600_Init(&AS5600);
+  FOC1_Handler.Encoder_measure = &AS5600;
+	FOC1_Handler.usrConfig = &UserConfig;
+	
   FOC_Init(&FOC1_Handler);
+	HAL_TIM_Base_Start_IT(&htim15);
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
   HAL_UART_Receive_DMA(&huart1, rx_buffer, 50);
-  HAL_TIM_Base_Start_IT(&htim15);
-//	HAL_ADCEx_Calibration_Start(&hadc1, );
-  HAL_ADCEx_InjectedStart_IT(&hadc1);
-	TIM1->CCR4 = PWM_PER-2;
-  HAL_TIM_Base_Start(&htim1);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-	HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_3);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
+  
 	
   FOC1_Handler.qd.U_q = 0.02f;
   /* USER CODE END 2 */
@@ -122,14 +130,14 @@ int main(void)
   while (1)
   {
 //    tempFloat[0] = AS5600.ecd;
-    tempFloat[1] = FOC1_Handler.Theta;
+    tempFloat[1] = FOC1_Handler.target;
     tempFloat[2] = AS5600.total_ecd;
     tempFloat[3] = AS5600.speed_rmp;
-		tempFloat[4] = FOC1_Handler.qd.U_q;
+		tempFloat[4] = FOC1_Handler.target;
 		tempFloat[5] = FOC1_Handler.UVW.I_W;
 		tempFloat[6] = FOC1_Handler.UVW.I_V;
-		tempFloat[7] = FOC1_Handler.qd.I_d;
-		tempFloat[8] = FOC1_Handler.qd.I_q;
+		tempFloat[7] = FOC1_Handler.qd.I_d_filt;
+		tempFloat[8] = FOC1_Handler.qd.I_q_filt;
 //		tempFloat[9] = FOC1_Handler.UVW.I_V;
 //    FOC1_Handler.Theta += 0.1f;
 		Vofa_Transmit(&huart1, 9);

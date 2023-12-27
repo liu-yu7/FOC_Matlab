@@ -50,7 +50,7 @@ void angle_Calculate(AS5600_measure *as5600)
 void AS5600_Init(AS5600_measure *as5600)
 {
   IIC_Init();
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < 10; i++)
   {
 		as5600->last_ecd = as5600->ecd;
 		int32_t value = 0;

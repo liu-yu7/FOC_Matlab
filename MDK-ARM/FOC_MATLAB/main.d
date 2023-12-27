@@ -45,6 +45,7 @@ foc_matlab\main.o: ../Inc/tim.h
 foc_matlab\main.o: ../Inc/usart.h
 foc_matlab\main.o: ../Inc/gpio.h
 foc_matlab\main.o: ../Inc/FOC.h
+foc_matlab\main.o: ../Inc/user_config.h
 foc_matlab\main.o: ../Inc/AS5600.h
 foc_matlab\main.o: ../Inc/IIC.h
 foc_matlab\main.o: ../Inc/pid.h

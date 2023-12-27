@@ -1,7 +1,7 @@
 Dependencies for Project 'FOC_MATLAB', Target 'FOC_MATLAB': (DO NOT MODIFY !)
 CompilerVersion: 5060061::V5.06 update 1 (build 61)::ARMCC
 F (startup_stm32g431xx.s)(0x657AA2BB)(--cpu Cortex-M4.fp.sp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include--pd "__UVISION_VERSION SETA 537" --pd "_RTE_ SETA 1" --pd "STM32G431xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32g431xx.lst --xref -o foc_matlab\startup_stm32g431xx.o --depend foc_matlab\startup_stm32g431xx.d)
-F (..\Src\AS5600.c)(0x657DAC49)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\as5600.o --omf_browse foc_matlab\as5600.crf --depend foc_matlab\as5600.d)
+F (..\Src\AS5600.c)(0x658C1ED0)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\as5600.o --omf_browse foc_matlab\as5600.crf --depend foc_matlab\as5600.d)
 I (../Inc/AS5600.h)(0x657DAD11)
 I (../Inc/main.h)(0x657A7D25)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6574587D)
@@ -126,8 +126,8 @@ I (../Inc/tim.h)(0x65745982)
 I (../Inc/usart.h)(0x656AF45A)
 I (../Inc/gpio.h)(0x65745640)
 I (../Inc/vofa_setting.h)(0x652560A5)
-F (..\Src\FOC.c)(0x657ECE40)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\foc.o --omf_browse foc_matlab\foc.crf --depend foc_matlab\foc.d)
-I (../Inc/FOC.h)(0x657ECD04)
+F (..\Src\FOC.c)(0x658C322D)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\foc.o --omf_browse foc_matlab\foc.crf --depend foc_matlab\foc.d)
+I (../Inc/FOC.h)(0x658C1E96)
 I (../Inc/main.h)(0x657A7D25)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6574587D)
 I (../Inc/stm32g4xx_hal_conf.h)(0x656AF45A)
@@ -166,6 +166,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x6574587D)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x656AE6CE)
 I (D:\Keil5\Keil5\ARM\ARMCC\include\string.h)(0x569DEA3A)
 I (D:\Keil5\Keil5\ARM\ARMCC\include\math.h)(0x569DEA3A)
+I (../Inc/user_config.h)(0x658C0D46)
 I (../Inc/AS5600.h)(0x657DAD11)
 I (../Inc/IIC.h)(0x65787974)
 I (../Inc/pid.h)(0x657DC4F2)
@@ -175,7 +176,7 @@ I (../Inc/tim.h)(0x65745982)
 I (../Inc/usart.h)(0x656AF45A)
 I (../Inc/gpio.h)(0x65745640)
 I (../Inc/vofa_setting.h)(0x652560A5)
-F (../Src/main.c)(0x657ECB38)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\main.o --omf_browse foc_matlab\main.crf --depend foc_matlab\main.d)
+F (../Src/main.c)(0x658C1ED0)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\main.o --omf_browse foc_matlab\main.crf --depend foc_matlab\main.d)
 I (../Inc/main.h)(0x657A7D25)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6574587D)
 I (../Inc/stm32g4xx_hal_conf.h)(0x656AF45A)
@@ -219,7 +220,8 @@ I (../Inc/dma.h)(0x656AF45A)
 I (../Inc/tim.h)(0x65745982)
 I (../Inc/usart.h)(0x656AF45A)
 I (../Inc/gpio.h)(0x65745640)
-I (../Inc/FOC.h)(0x657ECD04)
+I (../Inc/FOC.h)(0x658C1E96)
+I (../Inc/user_config.h)(0x658C0D46)
 I (../Inc/AS5600.h)(0x657DAD11)
 I (../Inc/IIC.h)(0x65787974)
 I (../Inc/pid.h)(0x657DC4F2)
@@ -346,7 +348,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x6574587D)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x656AE6CE)
 I (D:\Keil5\Keil5\ARM\ARMCC\include\string.h)(0x569DEA3A)
 I (D:\Keil5\Keil5\ARM\ARMCC\include\math.h)(0x569DEA3A)
-F (../Src/tim.c)(0x657EA509)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\tim.o --omf_browse foc_matlab\tim.crf --depend foc_matlab\tim.d)
+F (../Src/tim.c)(0x658BC87D)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\tim.o --omf_browse foc_matlab\tim.crf --depend foc_matlab\tim.d)
 I (../Inc/tim.h)(0x65745982)
 I (../Inc/main.h)(0x657A7D25)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6574587D)
@@ -426,7 +428,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x6574587D)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x656AE6CE)
 I (D:\Keil5\Keil5\ARM\ARMCC\include\string.h)(0x569DEA3A)
 I (D:\Keil5\Keil5\ARM\ARMCC\include\math.h)(0x569DEA3A)
-F (../Src/stm32g4xx_it.c)(0x657ECB4D)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\stm32g4xx_it.o --omf_browse foc_matlab\stm32g4xx_it.crf --depend foc_matlab\stm32g4xx_it.d)
+F (../Src/stm32g4xx_it.c)(0x658C2316)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\stm32g4xx_it.o --omf_browse foc_matlab\stm32g4xx_it.crf --depend foc_matlab\stm32g4xx_it.d)
 I (../Inc/main.h)(0x657A7D25)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6574587D)
 I (../Inc/stm32g4xx_hal_conf.h)(0x656AF45A)
@@ -471,7 +473,8 @@ I (../Inc/tim.h)(0x65745982)
 I (../Inc/usart.h)(0x656AF45A)
 I (../Inc/gpio.h)(0x65745640)
 I (../Inc/vofa_setting.h)(0x652560A5)
-I (../Inc/FOC.h)(0x657ECD04)
+I (../Inc/FOC.h)(0x658C1E96)
+I (../Inc/user_config.h)(0x658C0D46)
 I (../Inc/AS5600.h)(0x657DAD11)
 I (../Inc/IIC.h)(0x65787974)
 I (../Inc/pid.h)(0x657DC4F2)
@@ -517,6 +520,46 @@ I (D:\Keil5\Keil5\ARM\ARMCC\include\string.h)(0x569DEA3A)
 I (D:\Keil5\Keil5\ARM\ARMCC\include\math.h)(0x569DEA3A)
 F (..\Src\pid.c)(0x657ECBE2)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\pid.o --omf_browse foc_matlab\pid.crf --depend foc_matlab\pid.d)
 I (../Inc/pid.h)(0x657DC4F2)
+I (../Inc/main.h)(0x657A7D25)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6574587D)
+I (../Inc/stm32g4xx_hal_conf.h)(0x656AF45A)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h)(0x6574587D)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x6574587B)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h)(0x6574587B)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x6574587D)
+I (D:\Keil5\Keil5\ARM\ARMCC\include\stdint.h)(0x569DEA3A)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x6574587D)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x6574587D)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x6574587D)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x6574587D)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x6574587B)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x6574587D)
+I (D:\Keil5\Keil5\ARM\ARMCC\include\stddef.h)(0x569DEA3A)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x6574587D)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x6574587D)
+I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x656AE6CE)
+I (D:\Keil5\Keil5\ARM\ARMCC\include\string.h)(0x569DEA3A)
+I (D:\Keil5\Keil5\ARM\ARMCC\include\math.h)(0x569DEA3A)
+F (..\Src\user_config.c)(0x658C0D46)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../AS5600 -I ../IIC_Soft -I ../Vofa-I.\RTE\_FOC_MATLAB-ID:\Keil5\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Pack\Keil\STM32G4xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4-o foc_matlab\user_config.o --omf_browse foc_matlab\user_config.crf --depend foc_matlab\user_config.d)
+I (../Inc/user_config.h)(0x658C0D46)
 I (../Inc/main.h)(0x657A7D25)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6574587D)
 I (../Inc/stm32g4xx_hal_conf.h)(0x656AF45A)

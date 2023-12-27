@@ -46,6 +46,7 @@ foc_matlab\stm32g4xx_it.o: ../Inc/usart.h
 foc_matlab\stm32g4xx_it.o: ../Inc/gpio.h
 foc_matlab\stm32g4xx_it.o: ../Inc/vofa_setting.h
 foc_matlab\stm32g4xx_it.o: ../Inc/FOC.h
+foc_matlab\stm32g4xx_it.o: ../Inc/user_config.h
 foc_matlab\stm32g4xx_it.o: ../Inc/AS5600.h
 foc_matlab\stm32g4xx_it.o: ../Inc/IIC.h
 foc_matlab\stm32g4xx_it.o: ../Inc/pid.h

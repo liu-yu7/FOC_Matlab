@@ -13,6 +13,7 @@
 "foc_matlab\stm32g4xx_it.o"
 "foc_matlab\stm32g4xx_hal_msp.o"
 "foc_matlab\pid.o"
+"foc_matlab\user_config.o"
 "foc_matlab\system_stm32g4xx.o"
 "foc_matlab\stm32g4xx_hal_adc.o"
 "foc_matlab\stm32g4xx_hal_adc_ex.o"
