@@ -31,6 +31,8 @@ foc_matlab\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fla
 foc_matlab\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h
 foc_matlab\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h
 foc_matlab\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h
+foc_matlab\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h
+foc_matlab\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h
 foc_matlab\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h
 foc_matlab\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h
 foc_matlab\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h
@@ -47,7 +49,6 @@ foc_matlab\stm32g4xx_it.o: ../Inc/gpio.h
 foc_matlab\stm32g4xx_it.o: ../Inc/vofa_setting.h
 foc_matlab\stm32g4xx_it.o: ../Inc/FOC.h
 foc_matlab\stm32g4xx_it.o: ../Inc/user_config.h
-foc_matlab\stm32g4xx_it.o: ../Inc/AS5600.h
-foc_matlab\stm32g4xx_it.o: ../Inc/IIC.h
+foc_matlab\stm32g4xx_it.o: ../Inc/MT6701.h
 foc_matlab\stm32g4xx_it.o: ../Inc/pid.h
 foc_matlab\stm32g4xx_it.o: ../Inc/mw_cmsis.h

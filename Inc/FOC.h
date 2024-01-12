@@ -3,7 +3,7 @@
 
 #include "main.h"
 #include "user_config.h"
-#include "AS5600.h"
+#include "MT6701.h"
 #include "pid.h"
 #include "mw_cmsis.h"
 
@@ -61,7 +61,7 @@ typedef struct
 		TIM_HandleTypeDef *htim;          //pwm定时器
 		TIM_TypeDef 			*TIM;           //pwm定时器   
 		ADC_HandleTypeDef *hadc;					//采样adc
-    AS5600_measure *Encoder_measure;
+    MT6701_measure *Encoder_measure;
     float          Theta;             //电角度（rad）
     Alpha_Beta     Alpha_Beta;
     UVW            UVW;

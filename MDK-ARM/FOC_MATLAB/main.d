@@ -31,6 +31,8 @@ foc_matlab\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h
 foc_matlab\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h
 foc_matlab\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h
 foc_matlab\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h
+foc_matlab\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h
+foc_matlab\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h
 foc_matlab\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h
 foc_matlab\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h
 foc_matlab\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h
@@ -41,13 +43,13 @@ foc_matlab\main.o: D:\Keil5\Keil5\ARM\ARMCC\Bin\..\include\string.h
 foc_matlab\main.o: D:\Keil5\Keil5\ARM\ARMCC\Bin\..\include\math.h
 foc_matlab\main.o: ../Inc/adc.h
 foc_matlab\main.o: ../Inc/dma.h
+foc_matlab\main.o: ../Inc/spi.h
 foc_matlab\main.o: ../Inc/tim.h
 foc_matlab\main.o: ../Inc/usart.h
 foc_matlab\main.o: ../Inc/gpio.h
 foc_matlab\main.o: ../Inc/FOC.h
 foc_matlab\main.o: ../Inc/user_config.h
-foc_matlab\main.o: ../Inc/AS5600.h
-foc_matlab\main.o: ../Inc/IIC.h
+foc_matlab\main.o: ../Inc/MT6701.h
 foc_matlab\main.o: ../Inc/pid.h
 foc_matlab\main.o: ../Inc/mw_cmsis.h
 foc_matlab\main.o: ../Inc/vofa.h

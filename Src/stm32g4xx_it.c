@@ -259,7 +259,7 @@ void TIM1_BRK_TIM15_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim15);
   /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 1 */
 
-	AS5600_Speed_Cal_10khz(&AS5600);
+	MT6701_Speed_Cal_10khz(&MT6701);
   /* USER CODE END TIM1_BRK_TIM15_IRQn 1 */
 }
 

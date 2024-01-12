@@ -21,6 +21,7 @@
 #include "main.h"
 #include "adc.h"
 #include "dma.h"
+#include "spi.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -30,7 +31,6 @@
 #include "FOC.h"
 #include "User_Config.h"
 #include "vofa.h"
-#include "IIC.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,6 +98,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM6_Init();
   MX_TIM15_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   /*******************************配置参数*********************************/
 	FOC1_Handler.TIM = TIM1;
@@ -112,8 +113,8 @@ int main(void)
   UserConfig.Current_p = UserConfig.Phase_inductance*UserConfig.Current_bandwidth;
 	UserConfig.Current_i = UserConfig.Phase_resistance*UserConfig.Current_bandwidth;
   /**********************************************************************/
-	AS5600_Init(&AS5600);
-  FOC1_Handler.Encoder_measure = &AS5600;
+	MT6701_Init(&MT6701);
+  FOC1_Handler.Encoder_measure = &MT6701;
 	FOC1_Handler.usrConfig = &UserConfig;
 	
   FOC_Init(&FOC1_Handler);
@@ -129,10 +130,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-//    tempFloat[0] = AS5600.ecd;
+//    tempFloat[0] = MT6701.ecd;
     tempFloat[1] = FOC1_Handler.target;
-    tempFloat[2] = AS5600.total_ecd;
-    tempFloat[3] = AS5600.speed_rmp;
+    tempFloat[2] = MT6701.total_ecd;
+    tempFloat[3] = MT6701.speed_rmp;
 		tempFloat[4] = FOC1_Handler.target;
 		tempFloat[5] = FOC1_Handler.UVW.I_W;
 		tempFloat[6] = FOC1_Handler.UVW.I_V;

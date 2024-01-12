@@ -223,9 +223,9 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *hadc)
   /***************************************************************************/
 
   /*******************************角度处理*************************************/
-  AS5600_Get_Angle(&AS5600);
+  MT6701_GetAngle(&MT6701);
   //转化为电角度，*0.0015339825195f转化为弧度
-  FOC1_Handler.Theta = (AS5600.ecd - FOC1_Handler.usrConfig->Ele_offset)*FOC1_Handler.usrConfig->Pole_pairs*0.0015339825195f;
+  FOC1_Handler.Theta = (MT6701.ecd - FOC1_Handler.usrConfig->Ele_offset)*FOC1_Handler.usrConfig->Pole_pairs*0.0015339825195f;
   /***************************************************************************/
 
   FOC_Clark(&FOC1_Handler);           //由I_UVW得到I_αβ

@@ -60,10 +60,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define PWM_FREQUNCY 20000
 #define PWM_PER 168000000/PWM_FREQUNCY/2
-#define IIC_SDA_Pin GPIO_PIN_5
-#define IIC_SDA_GPIO_Port GPIOA
-#define IIC_SCL_Pin GPIO_PIN_6
-#define IIC_SCL_GPIO_Port GPIOA
+#define MT6701_CS_Pin GPIO_PIN_4
+#define MT6701_CS_GPIO_Port GPIOA
 #define KEY1_Pin GPIO_PIN_12
 #define KEY1_GPIO_Port GPIOB
 #define KEY1_EXTI_IRQn EXTI15_10_IRQn

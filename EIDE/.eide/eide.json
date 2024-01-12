@@ -34,9 +34,6 @@
                 "path": "../Src/adc.c"
               },
               {
-                "path": "../Src/AS5600.c"
-              },
-              {
                 "path": "../Src/dma.c"
               },
               {
@@ -46,10 +43,10 @@
                 "path": "../Src/gpio.c"
               },
               {
-                "path": "../Src/IIC.c"
+                "path": "../Src/main.c"
               },
               {
-                "path": "../Src/main.c"
+                "path": "../Src/MT6701.c"
               },
               {
                 "path": "../Src/pid.c"
